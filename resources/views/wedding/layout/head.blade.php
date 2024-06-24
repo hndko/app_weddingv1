@@ -1,10 +1,11 @@
 <meta charset="utf-8">
-<title>Wedding Invitation - Atep &amp; Arty </title>
+<title>Wedding Invitation - {{ $data['wedding']->groom_name }} &amp; {{ $data['wedding']->bride_name }} </title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:image" content="{{ asset('assets/img/kita.png') }}">
 <meta property="og:image:width" content="300">
 <meta property="og:image:height" content="300">
-<meta property="og:title" content="Wedding Invitation - Atep &amp; Arty ">
+<meta property="og:title"
+    content="Wedding Invitation - {{ $data['wedding']->groom_name }} &amp; {{ $data['wedding']->bride_name }} ">
 <meta property="og:description" content="Hello ! Kamu Di Undang..">
 <meta property="og:type" content="article">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
