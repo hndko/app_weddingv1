@@ -5,6 +5,9 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\EventSeeder;
+use Database\Seeders\StorySeeder;
+use Database\Seeders\WeddingSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +21,12 @@ class DatabaseSeeder extends Seeder
             'last_name' => 'Admin',
             'password' => 'admin123',
             'email' => 'admin@gmail.com',
+        ]);
+
+        $this->call([
+            EventSeeder::class,
+            WeddingSeeder::class,
+            StorySeeder::class,
         ]);
     }
 }
