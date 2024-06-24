@@ -16,7 +16,7 @@ class WeddingController extends Controller
 
         $data = [
             'events' => Event::all(),
-            'wedding' => Wedding::with(['groom', 'bride', 'stories', 'galleries'])->first()
+            'wedding' => Wedding::with(['groom', 'bride', 'stories', 'galleries', 'gifts'])->first()
         ];
 
         return view('wedding.index', compact('data'));

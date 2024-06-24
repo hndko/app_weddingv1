@@ -2,7 +2,8 @@
     <div class="splashscreen-bg"></div>
     <div class="tengah">
         <p>The Wedding Of</p>
-        <h1 style="font-size:80px;color:white;margin-top:-30px;">Arty &amp; Atep </h1>
+        <h1 style="font-size:50px;color:white;margin-top:-30px;">{{ $data['wedding']->groom_name }} &amp;
+            {{ $data['wedding']->bride_name }} </h1>
         <p style="margin-top:30px;">
             Kepada Yth.<br>
             <span id="recipient-name">Guest & Guest</span> <br>

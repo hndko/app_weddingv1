@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\StorySeeder;
+use Database\Seeders\GallerySeeder;
 use Database\Seeders\WeddingSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -27,6 +28,8 @@ class DatabaseSeeder extends Seeder
             EventSeeder::class,
             WeddingSeeder::class,
             StorySeeder::class,
+            GallerySeeder::class,
+            GiftSeeder::class,
         ]);
     }
 }

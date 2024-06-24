@@ -20,8 +20,6 @@
 <link rel="stylesheet" href="{{ asset('assets/css/css-animate.css') }}">
 <!-- Icomoon Icon Fonts-->
 <link rel="stylesheet" href="{{ asset('assets/css/css-icomoon.css') }}">
-<!-- Bootstrap  -->
-<link rel="stylesheet" href="{{ asset('assets/css/css-bootstrap.css') }}">
 <!-- Magnific Popup -->
 <link rel="stylesheet" href="{{ asset('assets/css/css-magnific-popup.css') }}">
 <!-- Owl Carousel  -->

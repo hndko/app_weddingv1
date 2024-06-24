@@ -15,7 +15,7 @@
                                 <div class="display-tc animate-box fadeIn animated-fast" data-animate-effect="fadeIn">
                                     <div style="color:#fff;margin-top:250px;">
                                         <p>{{ $data['wedding']->title }}</p>
-                                        <h1 style="margin-top:-40px">
+                                        <h1 style="font-size: 50px; margin-top:-40px">
                                             {{ $data['wedding']->groom_name }} &amp; {{ $data['wedding']->bride_name }}
                                         </h1>
                                         <p>
@@ -180,12 +180,45 @@
                                     </a>
                                 </li>
                             @endforeach
-                            <div class="videoWrapper" style="width:100%;">
-                                <center>
-                                    <object data="https://www.youtube.com/embed/hrVyGEvVu7k"> </object>
-                                </center>
-                            </div>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="fh5co-event" class="fh5co-bg paralax-acara" style="background-color:#304058; min-height:0px;">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center animate-box fadeInUp animated-fast">
+                        <h1 style="color:#ffffff;font-size:50px">Kirim Kado</h1>
+                        <p>
+                            <i> Bagi Anda yang ingin memberikan tanda kasih untuk kami berupa
+                                kado digital, dapat dikirim melalui rekening dibawah ini.</i>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="display-t">
+                        <div class="display-tc">
+                            <div class="col-md-10 col-md-offset-1">
+                                @foreach ($data['wedding']->gifts as $gift)
+                                    <div class="col-md-6 col-sm-6 text-center" style="margin-bottom:10px;">
+                                        <div class="event-wrap animate-box fadeInUp animated-fast">
+                                            <h3>{{ $gift->bank_name }}</h3>
+                                            <p class="text-center">
+                                                <img src="{{ asset($gift->qr_code_image) }}" alt=""
+                                                    style="width: 150px; max-width: 100%; height: auto;">
+                                                <label style="font-weight:normal; font-size:18px;">
+                                                    No Rekening : {{ $gift->account_number }} a/n
+                                                    {{ $gift->account_name }}
+                                                </label>
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -196,38 +229,92 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2 text-center animate-box  fadeInUp animated-fast">
-                        <h1 class="color-putih" style="margin-top:30px;">Buku Tamu</h1>
+                        <h1 class="color-putih" style="margin-top:30px;">Ucapan & Doa</h1>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="display-t">
-                        <div class="display-tc">
-                            <div class="col-md-10 col-md-offset-1">
-                                <div class="col-md-12 col-sm-12 text-center">
-                                    <div class="event-wrap animate-box fadeInUp animated-fast">
-                                        <h3>Buku Tamu</h3>
-
+                    <div class="col-md-12 mb-3">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <form action="" method="POST" style="background-color: transparent">
+                                    <div class="form-group">
+                                        <label for="nama_tamu">Nama Tamu</label>
+                                        <input type="text" class="form-control" name="nama_tamu" id="nama_tamu"
+                                            autocomplete="off" style="background: transparent" readonly>
                                     </div>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="kehadiran">Kehadiran</label>
+                                        <select name="kehadiran" id="kehadiran" class="form-control" required>
+                                            <option value="">Konfirmasi Kehadiran</option>
+                                            <option value="hadir">Hadir</option>
+                                            <option value="tidak hadir">Tidak Hadir</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ucapan">Ucapan</label>
+                                        <textarea name="ucapan" id="ucapan" class="form-control" cols="30" rows="5" required></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">9 Jam Lalu</span> <span class="badge"
+                                    style="background-color: rgb(0, 255, 42)">Hadir</span>
+                                Cras justo odio
+                                <hr>
+                                <span>Hello World</span>
+                            </li>
+                        </ul>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <span class="badge">9 Jam Lalu</span> <span class="badge"
+                                    style="background-color: rgb(255, 0, 0)">Tidak hadir</span>
+                                Cras justo odio
+                                <hr>
+                                <span>Hello ashdkajhdjkshadjsa</span>
+                            </li>
+                        </ul>
+
+                        <div class="text-center">
+                            <nav aria-label="...">
+                                <ul class="pagination">
+                                    <li>
+                                        <a href="#" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                    <li class="active"><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li>
+                                        <a href="#" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
         <footer>
             <p> &copy; Copyright {{ date('Y') }}, Kode Kreatif ID. All Rights Reserved
             </p>
         </footer>
 
-
-        <!-- MUTE BUTTON -->
         <a id="mute" href="#/" onclick="mute()" class="floatmute">
             <i color="#fff" class="fa fa-volume-up my-float"></i>
         </a>
-        <!-- MUTE BUTTON -->
-
     </div>
 @endsection

@@ -2,7 +2,12 @@
     <a href="#fh5co-header" class="js-gotop"><i class="icon-arrow-up"></i></a>
 </div>
 
-<script src="{{ asset('assets/js/js-bootstrap.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous">
+</script>
 <!-- jQuery -->
 <!-- <script src="assets/js/jquery.min.js"></script> -->
 <!-- jQuery Easing -->
@@ -37,7 +42,7 @@
             splashscreen.hide();
             page.show();
             let audio = $('#audio')[0];
-            audio.muted = true;
+            audio.muted = false;
             audio.volume = 0.9;
             audio.play();
             button.html('<i color="#fff" class="fa fa-volume-up my-float"></i>');

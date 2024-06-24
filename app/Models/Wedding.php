@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Gift;
 use App\Models\Bride;
 use App\Models\Groom;
 use App\Models\Story;
@@ -40,5 +41,10 @@ class Wedding extends Model
     public function galleries()
     {
         return $this->hasMany(Gallery::class);
+    }
+
+    public function gifts()
+    {
+        return $this->hasMany(Gift::class);
     }
 }
