@@ -47,4 +47,9 @@ class Wedding extends Model
     {
         return $this->hasMany(Gift::class);
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

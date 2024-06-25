@@ -228,7 +228,7 @@
             <div class="overlay"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2 text-center animate-box  fadeInUp animated-fast">
+                    <div class="col-md-8 col-md-offset-2 text-center animate-box fadeInUp animated-fast">
                         <h1 class="color-putih" style="margin-top:30px;">Ucapan & Doa</h1>
                     </div>
                 </div>
@@ -236,18 +236,20 @@
                     <div class="col-md-12 mb-3">
                         <div class="panel panel-primary">
                             <div class="panel-body">
-                                <form action="" method="POST" style="background-color: transparent">
+                                <form action="{{ route('messages.store') }}" method="POST"
+                                    style="background-color: transparent">
+                                    @csrf
                                     <div class="form-group">
                                         <label for="nama_tamu">Nama Tamu</label>
                                         <input type="text" class="form-control" name="nama_tamu" id="nama_tamu"
-                                            autocomplete="off" style="background: transparent" readonly>
+                                            autocomplete="off" style="background: transparent">
                                     </div>
                                     <div class="form-group">
                                         <label for="kehadiran">Kehadiran</label>
                                         <select name="kehadiran" id="kehadiran" class="form-control" required>
                                             <option value="">Konfirmasi Kehadiran</option>
-                                            <option value="hadir">Hadir</option>
-                                            <option value="tidak hadir">Tidak Hadir</option>
+                                            <option value="Hadir">Hadir</option>
+                                            <option value="Tidak Hadir">Tidak Hadir</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -263,43 +265,25 @@
                     </div>
 
                     <div class="col-md-12">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">9 Jam Lalu</span> <span class="badge"
-                                    style="background-color: rgb(0, 255, 42)">Hadir</span>
-                                Cras justo odio
-                                <hr>
-                                <span>Hello World</span>
-                            </li>
-                        </ul>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <span class="badge">9 Jam Lalu</span> <span class="badge"
-                                    style="background-color: rgb(255, 0, 0)">Tidak hadir</span>
-                                Cras justo odio
-                                <hr>
-                                <span>Hello ashdkajhdjkshadjsa</span>
-                            </li>
-                        </ul>
+                        @foreach ($data['wedding']->messages as $message)
+                            <ul class="list-group" id="message-list">
+                                <li class="list-group-item">
+                                    <span class="badge">{{ $message->created_at->diffForHumans() }}</span>
+                                    <span class="badge"
+                                        style="background-color: {{ $message->attendance == 'Hadir' ? 'rgb(0, 255, 42)' : 'rgb(255, 0, 0)' }}">
+                                        {{ $message->attendance }}
+                                    </span>
+                                    {{ $message->guest_name }}
+                                    <hr>
+                                    <span>{{ $message->message }}</span>
+                                </li>
+                            </ul>
+                        @endforeach
 
                         <div class="text-center">
-                            <nav aria-label="...">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="active"><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination" id="pagination">
+                                    <!-- Pagination items will be generated by jQuery -->
                                 </ul>
                             </nav>
                         </div>

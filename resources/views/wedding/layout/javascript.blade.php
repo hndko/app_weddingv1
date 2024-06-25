@@ -62,10 +62,46 @@
 
         // Get 'to' parameter from URL and update recipient name
         let recipient = getParameterByName('to');
+        console.log('Recipient:', recipient); // Log recipient for debugging
         if (recipient) {
             recipient = recipient.replace(/-/g, ' ').replace(/&/g, ' & ');
             $('#recipient-name').text(recipient);
+            $('#nama_tamu').val(recipient);
         }
+
+
+        var itemsPerPage = 5;
+        var items = $("#message-list .list-group-item");
+        var numItems = items.length;
+        var numPages = Math.ceil(numItems / itemsPerPage);
+
+        var pagination = $("#pagination");
+
+        // Function to show items for a given page
+        function showPage(page) {
+            items.hide();
+            var start = (page - 1) * itemsPerPage;
+            var end = start + itemsPerPage;
+            items.slice(start, end).show();
+        }
+
+        // Generate pagination buttons
+        for (var i = 1; i <= numPages; i++) {
+            $("<li class='page-item'><a class='page-link' href='#'>" + i + "</a></li>").appendTo(pagination);
+        }
+
+        // Add click event for pagination buttons
+        pagination.find("li:first").addClass("active");
+        pagination.on("click", "li", function(event) {
+            event.preventDefault();
+            var page = $(this).index() + 1;
+            showPage(page);
+            pagination.find("li").removeClass("active");
+            $(this).addClass("active");
+        });
+
+        // Show the first page initially
+        showPage(1);
     });
 
     function OpenInvitation() {

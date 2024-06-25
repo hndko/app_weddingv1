@@ -32,7 +32,7 @@ class WeddingSeeder extends Seeder
         Groom::create([
             'wedding_id' => $wedding->id,
             'name' => 'Atep Jaenudin',
-            'image' => 'assets/img/groom.png?nocache=1440',
+            'image' => 'assets/img/1719248068.jpg?nocache=1440',
             'description' => 'Putra dari : Bapak H Enyang & Ibu H Atik',
         ]);
 

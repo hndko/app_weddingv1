@@ -5,9 +5,11 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Database\Seeders\GiftSeeder;
 use Database\Seeders\EventSeeder;
 use Database\Seeders\StorySeeder;
 use Database\Seeders\GallerySeeder;
+use Database\Seeders\MessageSeeder;
 use Database\Seeders\WeddingSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,6 +32,7 @@ class DatabaseSeeder extends Seeder
             StorySeeder::class,
             GallerySeeder::class,
             GiftSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }
