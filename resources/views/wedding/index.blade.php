@@ -112,13 +112,13 @@
                                             </div>
                                         </div>
                                     @endforeach
-                                    <div class="col-md-8 col-md-offset-2 text-center animate-box fadeInUp animated-fast">
+                                    {{-- <div class="col-md-8 col-md-offset-2 text-center animate-box fadeInUp animated-fast">
                                         <a href="https://youtu.be/Ev-Rgy8HabA" target="_blank"
                                             class="streaming mdc-button mdc-button--raised">
                                             <i class="material-icons mdc-button__icon">play_arrow</i>
                                             LIVE STREAMING
                                         </a>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 mb-3">
-                            <div class="panel panel-primary">
+                            <div class="panel">
                                 <div class="panel-body">
                                     <form action="{{ route('messages.store') }}" method="POST"
                                         style="background-color: transparent">

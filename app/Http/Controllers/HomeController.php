@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
+use App\Models\Message;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,13 +26,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::count();
-
-        $widget = [
-            'users' => $users,
-            //...
+        $data = [
+            'komentar' => Message::count(),
+            'hadir' => Message::where('attendance', 'Hadir')->count(),
+            'tidak_hadir' => Message::where('attendance', 'Tidak Hadir')->count(),
+            'gallery' => Gallery::count(),
+            'messages' =>  Message::latest()->get()
         ];
 
-        return view('home', compact('widget'));
+        return view('home', compact('data'));
     }
 }
