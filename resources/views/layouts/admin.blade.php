@@ -68,6 +68,21 @@
                     <i class="fas fa-fw fa-female"></i>
                     <span>{{ __('Pengantin Wanita') }}</span></a>
             </li>
+            <li class="nav-item {{ Nav::isRoute('stories.*') }}">
+                <a class="nav-link" href="{{ route('stories.index') }}">
+                    <i class="fas fa-fw fa-heart"></i>
+                    <span>{{ __('Cerita Pernikahan') }}</span></a>
+            </li>
+            <li class="nav-item {{ Nav::isRoute('galleries.*') }}">
+                <a class="nav-link" href="{{ route('galleries.index') }}">
+                    <i class="fas fa-fw fa-images"></i>
+                    <span>{{ __('Photo Pernikahan') }}</span></a>
+            </li>
+            <li class="nav-item {{ Nav::isRoute('gifts.*') }}">
+                <a class="nav-link" href="{{ route('gifts.index') }}">
+                    <i class="fas fa-fw fa-credit-card"></i>
+                    <span>{{ __('Rekening') }}</span></a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

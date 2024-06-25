@@ -191,8 +191,8 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center animate-box fadeInUp animated-fast">
-                        <h1 style="color:#ffffff;font-size:50px">Kirim Kado</h1>
-                        <p>
+                        <h1 style="color:#ffffff; font-size:50px">Kirim Kado</h1>
+                        <p style="color: #ffffff">
                             <i> Bagi Anda yang ingin memberikan tanda kasih untuk kami berupa
                                 kado digital, dapat dikirim melalui rekening dibawah ini.</i>
                         </p>

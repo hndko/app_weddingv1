@@ -1,7 +1,7 @@
 <div id="splashscreen">
     <div class="splashscreen-bg"></div>
     <div class="tengah">
-        <p>The Wedding Of</p>
+        <p>{{ $data['wedding']->title }}</p>
         <h1 style="font-size:50px;color:white;margin-top:-30px;">{{ $data['wedding']->groom_name }} &amp;
             {{ $data['wedding']->bride_name }} </h1>
         <p style="margin-top:30px;">

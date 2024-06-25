@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\BrideController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\GiftController;
 use App\Http\Controllers\GroomController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\StoryController;
 use App\Http\Controllers\WeddingController;
 use App\Http\Controllers\WeddingsController;
 use Illuminate\Support\Facades\Auth;
@@ -36,3 +39,6 @@ Route::resource('events', EventsController::class);
 Route::resource('weddings', WeddingsController::class);
 Route::resource('grooms', GroomController::class);
 Route::resource('brides', BrideController::class);
+Route::resource('stories', StoryController::class);
+Route::resource('galleries', GalleryController::class);
+Route::resource('gifts', GiftController::class);
