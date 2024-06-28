@@ -17,7 +17,16 @@ class WeddingController extends Controller
 
         $data = [
             'events' => Event::all(),
-            'wedding' => Wedding::with(['groom', 'bride', 'stories', 'galleries', 'gifts', 'messages'])->first()
+            'wedding' => Wedding::with([
+                'groom',
+                'bride',
+                'stories',
+                'galleries',
+                'gifts',
+                'messages' => function ($query) {
+                    $query->orderBy('created_at', 'desc');
+                }
+            ])->first()
         ];
 
         return view('wedding.index', compact('data'));
@@ -33,6 +42,18 @@ class WeddingController extends Controller
 
         $wedding = Wedding::first();
 
+        // Check if the guest has already submitted a message
+        $existingMessage = Message::where('wedding_id', $wedding->id)
+            ->where('guest_name', $request->input('nama_tamu'))
+            ->first();
+
+        if ($existingMessage) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Anda sudah mengirim pesan sebelumnya.'
+            ], 400);
+        }
+
         Message::create([
             'wedding_id' => $wedding->id,
             'guest_name' => $request->input('nama_tamu'),
@@ -40,6 +61,16 @@ class WeddingController extends Controller
             'message' => $request->input('ucapan'),
         ]);
 
-        return redirect()->back()->with('success', 'Ucapan telah dikirim.');
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Ucapan telah dikirim.'
+        ], 200);
+    }
+
+    public function getMessages()
+    {
+        $messages = Message::orderBy('created_at', 'desc')->get();
+
+        return response()->json($messages);
     }
 }

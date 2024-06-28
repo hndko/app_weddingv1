@@ -74,6 +74,36 @@
             </div>
         </div>
 
+        <div id="fh5co-event" class="fh5co-bg paralax-acara" style="background-color:#304058; height: 450px !important;">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center animate-box fadeInUp animated-fast">
+                        <h1 style="color:#ffffff; font-size:50px">Countdown Acara</h1>
+                        <div class="countdown d-flex justify-content-center"
+                            data-count="{{ \Carbon\Carbon::parse($data['wedding']->wedding_date)->translatedFormat('Y/m/d') }}">
+                            <div>
+                                <h3 id="days">%d</h3>
+                                <h4>Hari</h4>
+                            </div>
+                            <div>
+                                <h3 id="hours">%h</h3>
+                                <h4>Jam</h4>
+                            </div>
+                            <div>
+                                <h3 id="minutes">%m</h3>
+                                <h4>Menit</h4>
+                            </div>
+                            <div>
+                                <h3 id="seconds">%s</h3>
+                                <h4>Detik</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         @if ($data['events']->isNotEmpty())
             <div id="fh5co-event" class="fh5co-bg paralax-acara" style="background-color:#304058; min-height:0px;">
                 <div class="overlay"></div>
@@ -233,48 +263,49 @@
             </div>
         @endif
 
-        @if ($data['wedding']->messages->isNotEmpty())
-            <div id="fh5co-maps" class="fh5co-bg scrolltomap" style="background-color:#304058;">
-                <div class="overlay"></div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-8 col-md-offset-2 text-center animate-box fadeInUp animated-fast">
-                            <h1 class="color-putih" style="margin-top:30px;">Ucapan & Doa</h1>
-                        </div>
+
+        <div id="fh5co-maps" class="fh5co-bg scrolltomap" style="background-color:#304058;">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 text-center animate-box fadeInUp animated-fast">
+                        <h1 class="color-putih" style="margin-top:30px;">Ucapan & Doa</h1>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 mb-3">
-                            <div class="panel">
-                                <div class="panel-body">
-                                    <form action="{{ route('messages.store') }}" method="POST"
-                                        style="background-color: transparent">
-                                        @csrf
-                                        <div class="form-group">
-                                            <label for="nama_tamu">Nama Tamu</label>
-                                            <input type="text" class="form-control" name="nama_tamu" id="nama_tamu"
-                                                autocomplete="off" style="background: transparent">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="kehadiran">Kehadiran</label>
-                                            <select name="kehadiran" id="kehadiran" class="form-control" required>
-                                                <option value="">Konfirmasi Kehadiran</option>
-                                                <option value="Hadir">Hadir</option>
-                                                <option value="Tidak Hadir">Tidak Hadir</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="ucapan">Ucapan</label>
-                                            <textarea name="ucapan" id="ucapan" class="form-control" cols="30" rows="5" required></textarea>
-                                        </div>
-                                        <div class="text-right">
-                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 mb-3">
+                        <div class="panel">
+                            <div class="panel-body">
+                                <form id="messageForm" action="{{ route('pesan.store') }}" method="POST"
+                                    style="background-color: transparent">
+                                    @csrf
+                                    <div class="form-group">
+                                        <label for="nama_tamu">Nama Tamu</label>
+                                        <input type="text" class="form-control" name="nama_tamu" id="nama_tamu"
+                                            autocomplete="off" style="background: transparent">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="kehadiran">Kehadiran</label>
+                                        <select name="kehadiran" id="kehadiran" class="form-control" required>
+                                            <option value="">Konfirmasi Kehadiran</option>
+                                            <option value="Hadir">Hadir</option>
+                                            <option value="Tidak Hadir">Tidak Hadir</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ucapan">Ucapan</label>
+                                        <textarea name="ucapan" id="ucapan" class="form-control" cols="30" rows="5" required></textarea>
+                                    </div>
+                                    <div class="text-right">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-12">
+                    @if ($data['wedding']->messages->isNotEmpty())
+                        {{-- <div class="col-md-12">
                             @foreach ($data['wedding']->messages as $message)
                                 <ul class="list-group" id="message-list">
                                     <li class="list-group-item">
@@ -297,11 +328,25 @@
                                     </ul>
                                 </nav>
                             </div>
+                        </div> --}}
+
+                        <div class="col-md-12">
+                            <ul class="list-group" id="message-list">
+                                <!-- Messages will be loaded here dynamically -->
+                            </ul>
+
+                            <div class="text-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination" id="pagination">
+                                        <!-- Pagination items will be generated by jQuery -->
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
-        @endif
+        </div>
 
         <footer>
             <p> &copy; Copyright {{ date('Y') }}, Kode Kreatif ID. All Rights Reserved

@@ -41,3 +41,32 @@
 <link rel="stylesheet" href="{{ asset('assets/css/ket2.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/ket.css') }}">
 <script src="{{ asset('assets/js/2.1.3-jquery.min.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .countdown div {
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        width: 100px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .countdown h3 {
+        font-size: 36px;
+        color: #304058;
+        margin: 0;
+    }
+
+    .countdown h4 {
+        font-size: 18px;
+        color: #304058;
+        margin: 5px 0 0 0;
+    }
+</style>

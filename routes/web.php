@@ -27,7 +27,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [WeddingController::class, 'index'])->name('/');
-Route::post('/messages', [WeddingController::class, 'storeMessage'])->name('messages.store');
+Route::post('pesan', [WeddingController::class, 'storeMessage'])->name('pesan.store');
+Route::get('pesan', [WeddingController::class, 'getMessages'])->name('pesan.get');
 
 Auth::routes();
 
