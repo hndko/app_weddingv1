@@ -29,10 +29,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EventSeeder::class,
             WeddingSeeder::class,
-            // StorySeeder::class,
-            // GallerySeeder::class,
-            // GiftSeeder::class,
-            // MessageSeeder::class,
+            StorySeeder::class,
+            GallerySeeder::class,
+            GiftSeeder::class,
+            MessageSeeder::class,
         ]);
     }
 }
